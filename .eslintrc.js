@@ -22,7 +22,8 @@ module.exports = {
     'jest/prefer-to-have-length': 'warn',
     'jest/valid-expect': 'error',
     'react/prop-types': 'off',
-    'no-unused-vars': ['error', { vars: 'all' }]
+    'no-unused-vars': ['error', { vars: 'all' }],
+    'no-console': ['error', { allow: ['warn', 'error'] }]
   },
   settings: {
     react: {
