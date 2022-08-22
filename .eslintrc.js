@@ -1,20 +1,30 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-  ],
-  overrides: [],
+  extends: ['plugin:react/recommended'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
-  plugins: ['react'],
+  plugins: ['react', 'jest'],
   rules: {
-    'no-console': 'off',
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
+    'react/prop-types': 'off'
   },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  }
 };
