@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 const App = () => {
-  const a = 1
+  const a = 1;
   const b = () => {
-    console.log('a', b)
-  }
-  return <h1>Hello React</h1>
-}
+    console.log('a', b);
+  };
+  return <h1>Hello React</h1>;
+};
 
-export default App
+export default App;
