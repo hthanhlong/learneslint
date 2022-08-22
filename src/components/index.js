@@ -1,1 +1,1 @@
-// export { MyFirstComponent as default } from './MyFirstComponent'
+export { default as MyFirstComponent } from './MyFirstComponent/MyFirstComponent'

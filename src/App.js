@@ -1,5 +1,6 @@
 import React from 'react'
-import MyFirstComponent from './components/MyFirstComponent'
+import { MyFirstComponent } from './components'
+
 const App = () => {
   console.warn('hello, please remove me')
   console.error('hello, please remove me')
