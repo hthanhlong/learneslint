@@ -6,8 +6,9 @@ module.exports = {
     es2021: true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: 'jsconfig.json',
+    jsconfigRootDir: __dirname,
     ecmaFeatures: {
       jsx: true,
     },
