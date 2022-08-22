@@ -3,31 +3,24 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react', 'jest'],
   rules: {
-    'jest/no-disabled-tests': 'warn',
-    'jest/no-focused-tests': 'error',
-    'jest/no-identical-title': 'error',
-    'jest/prefer-to-have-length': 'warn',
-    'jest/valid-expect': 'error',
-    'react/prop-types': 'off',
     'no-unused-vars': ['error', { vars: 'all' }],
-    'no-console': ['error', { allow: ['warn', 'error'] }]
   },
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
-};
+      version: 'detect',
+    },
+  },
+}

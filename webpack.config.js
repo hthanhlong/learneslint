@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   output: {
@@ -10,6 +11,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html', // to import index.html file inside index.js
+    }),
+    new Dotenv({
+      path: '.env', // default is .env
     }),
   ],
   devServer: {
