@@ -1,5 +1,4 @@
 import { MyFirstComponent } from '@'
-import React from 'react'
 
 const App = () => {
   /* eslint-disable no-undef */
