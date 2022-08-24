@@ -1,11 +1,29 @@
 /* eslint-disable no-undef */
-import renderer from 'react-test-renderer'
 import MyFirstComponent from './MyFirstComponent'
-import { cleanup } from '@testing-library/react'
+import { render, cleanup, screen } from '@testing-library/react'
 
 afterEach(cleanup)
 
-it('CheckboxWithLabel changes the text after click', () => {
-  const component = renderer.create(<MyFirstComponent />)
-  expect(component).toBe(component)
+it('Minhle changes the text after click', () => {
+  render(<MyFirstComponent />)
+  const text = screen.getByTestId('test')
+  expect(text.innerHTML).toBe('hello MyFirstComponent')
+})
+
+it('Minhle changes the text after click 2', () => {
+  render(<MyFirstComponent />)
+  const text = screen.getByTestId('test')
+  expect(text.innerHTML).toBe('hello MyFirstComponent')
+})
+
+it('Minhle changes the text after click 3', () => {
+  render(<MyFirstComponent />)
+  const text = screen.getByTestId('test')
+  expect(text.innerHTML).toBe('hello MyFirstComponent')
+})
+
+it('Minhle changes the text after click 4', () => {
+  render(<MyFirstComponent />)
+  const text = screen.getByTestId('test')
+  expect(text.innerHTML).toBe('hello MyFirstComponent')
 })

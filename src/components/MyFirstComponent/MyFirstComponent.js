@@ -1,5 +1,5 @@
 const MyFirstComponent = () => {
-  return <div id="test">hello MyFirstComponent</div>
+  return <div data-testid="test">hello MyFirstComponent</div>
 }
 
 export default MyFirstComponent
