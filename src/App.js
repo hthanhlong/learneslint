@@ -1,15 +1,25 @@
-import { MyFirstComponent } from '@'
-
-const App = () => {
-  /* eslint-disable no-undef */
-  const MINH_LE = process.env.MINHLE
-  console.log('hello, please remove me')
-  return (
-    <h1>
-      Hello React 3 - {MINH_LE}
-      <MyFirstComponent />
-    </h1>
-  )
+import { Counter } from '@'
+import React from 'react'
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.aRef = React.createRef()
+  }
+  render() {
+    console.log('render app')
+    return (
+      <>
+        <Counter ref={this.aRef} />
+        <button
+          onClick={() => {
+            console.log(this.aRef.current)
+          }}
+        >
+          Ref Component App
+        </button>
+      </>
+    )
+  }
 }
 
 export default App
