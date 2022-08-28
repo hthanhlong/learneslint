@@ -10,6 +10,7 @@ const App = () => {
     const value = event.target.value
     console.log('value', value)
     console.log('abc', abc)
+    console.log('abc1231', )
     setValue(value)
     setValue2(currentValue => {
       return (currentValue = currentValue + 1)
