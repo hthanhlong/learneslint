@@ -1,12 +1,30 @@
 import { MyFirstComponent } from '@'
+import { useState, useEffect } from 'react'
 
 const App = () => {
-  /* eslint-disable no-undef */
-  const MINH_LE = process.env.MINHLE
-  console.log('hello, please remove me')
+  const [value, setValue] = useState('')
+  const [value2, setValue2] = useState('')
+
+  const handleOnChange = abc => event => {
+    event.preventDefault()
+    const value = event.target.value
+    console.log('value', value)
+    console.log('abc', abc)
+    setValue(value)
+    setValue2(currentValue => {
+      return (currentValue = currentValue + 1)
+    })
+  }
+
+  useEffect(() => {
+    setValue2(1)
+  }, [])
+
   return (
     <h1>
-      Hello React 3 - {MINH_LE}
+      Hello React 3
+      <input id="test" onChange={handleOnChange(123)} value={value}></input>
+      <div>value 2: {value2}</div>
       <MyFirstComponent />
     </h1>
   )
