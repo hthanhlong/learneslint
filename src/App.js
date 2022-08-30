@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 const App = () => {
   const [value, setValue] = useState('')
   const [value2, setValue2] = useState('')
-
+  const a = 1
   const handleOnChange = abc => event => {
     event.preventDefault()
     const value = event.target.value
