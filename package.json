@@ -25,7 +25,8 @@
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "lint:fix": "eslint --fix",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
   },
   "author": "",
   "license": "ISC",
