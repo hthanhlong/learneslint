@@ -9,6 +9,7 @@ const App = () => {
     event.preventDefault()
     const value = event.target.value
     console.log('abc', abc)
+    console.log('test git name')
     setValue(value)
     setValue2(currentValue => {
       return (currentValue = currentValue + 1)
