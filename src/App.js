@@ -1,52 +1,63 @@
-import { MyFirstComponent } from '@'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect, Fragment } from 'react'
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max)
+}
 
 const App = () => {
-  const [value, setValue] = useState('')
-  const [value2, setValue2] = useState('')
-  const handleOnChange = abc => event => {
-    event.preventDefault()
-    const value = event.target.value
-    console.log('abc', abc)
-    console.log('test git name')
-    setValue(value)
-    setValue2(currentValue => {
-      return (currentValue = currentValue + 1)
-    })
-  }
+  const [trigger1, setTrigger] = useState(false)
+  const [trigger2, setTrigger2] = useState(false)
+  const [numbers, setNumbers] = useState([1, 2, 3])
 
   useEffect(() => {
-    // const stringa = 'abcc'
-    // const emtyString = ''
-    // const bol = true
-    // const numberZero = 0
-    // const number1 = 1
-    // const emtyArr = []
-    // const emtyOBJ = {}
-    // const arr = ['a']
-    // const object1 = {
-    //   hello: 'hello',
-    // }
-    // console.log('stringa', !!stringa)
-    // console.log('emtyString', !!emtyString)
-    // console.log('bol', !!bol)
-    // console.log('numberZero', !!numberZero)
-    // console.log('number1', !!number1)
-    // console.log('emtyArr', !!emtyArr)
-    // console.log('emtyOBJ', !!emtyOBJ)
-    // console.log('arr', !!arr)
-    // console.log('object1', !!object1)
-    setValue2(1)
-    console.log('meena 2')
-  }, [])
+    console.log('useEffect')
+    const random = getRandomInt(100000000000000)
+    setNumbers(numbers => {
+      numbers?.push(random)
+      return numbers
+    })
+    updateScrollBar()
+  }, [trigger1])
+
+  useLayoutEffect(() => {
+    console.log('useLayoutEffect')
+    const random = getRandomInt(100000000000000)
+    setNumbers(numbers => {
+      numbers?.push(random)
+      return numbers
+    })
+    updateScrollBar()
+  }, [trigger2])
+
+  const updateScrollBar = () => {
+    const appElement = document.getElementById('app')
+    const height = appElement.getBoundingClientRect().height
+    window.scrollTo(0, height - window.innerHeight)
+  }
 
   return (
-    <h1>
-      Hello React 3
-      <input id="test" onChange={handleOnChange(123)} value={value}></input>
-      <div>value 2: {value2}</div>
-      <MyFirstComponent />
-    </h1>
+    <Fragment>
+      <h1>
+        Hello React 3
+        <div id="container">
+          {numbers &&
+            numbers.map(value => (
+              <div key={value} id="retangle">
+                {value}
+              </div>
+            ))}
+        </div>
+        <button className="btn" onClick={() => setTrigger(value => !value)}>
+          click me Add Dom by useEffect!
+        </button>
+        <button
+          className="btn layoutEffect"
+          onClick={() => setTrigger2(value => !value)}
+        >
+          click me Add by useLayoutEffect!
+        </button>
+      </h1>
+    </Fragment>
   )
 }
 
