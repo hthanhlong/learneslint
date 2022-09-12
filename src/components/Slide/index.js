@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useTilt } from 'hook/useTilt'
+import { useTilt } from '../../hook/useTilt'
 
 function Slide({ slide, offset }) {
   const active = offset === 0 ? true : null

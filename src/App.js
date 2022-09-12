@@ -1,6 +1,6 @@
-import { Slide } from './components'
+import { Slide } from '@'
 import { Fragment, useReducer } from 'react'
-import { slides } from './mockdata'
+import { slidesData } from './mockdata'
 import { initialState, slidesReducer } from './reducer'
 
 const App = () => {
@@ -10,8 +10,8 @@ const App = () => {
     <Fragment>
       <div className="slides">
         <button onClick={() => dispatch({ type: 'PREV' })}>‹</button>
-        {[...slides, ...slides, ...slides].map((slide, i) => {
-          let offset = slides.length + (state.slideIndex - i)
+        {[...slidesData, ...slidesData, ...slidesData].map((slide, i) => {
+          let offset = slidesData.length + (state.slideIndex - i)
           return <Slide slide={slide} offset={offset} key={i} />
         })}
         <button onClick={() => dispatch({ type: 'NEXT' })}>›</button>
