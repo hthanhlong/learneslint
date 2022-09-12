@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 
 export function useTilt(active) {
   const ref = React.useRef(null)
 
-  React.useEffect(() => {
+  useLayoutEffect(() => {
     if (!ref.current || !active) {
       return
     }
