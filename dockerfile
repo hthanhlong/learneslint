@@ -1,7 +1,9 @@
-FROM node
+FROM node:18-slim as build
 WORKDIR /app
-COPY package.json .
-RUN yarn install
-COPY . .
-EXPOSE 3000
-CMD ["npm", "start"]
+COPY . /app
+RUN yarn install && yarn build
+
+FROM nginx
+COPY --from=build /app/build /usr/share/nginx/html
+
+
